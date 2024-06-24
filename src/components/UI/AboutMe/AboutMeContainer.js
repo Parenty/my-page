@@ -25,12 +25,15 @@ const AboutMeWrapper = styled.div`
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
+        box-shadow: 0px 5px 10px #2b6370;
+        border-radius: 10px;
 `
 
 const MyPhoto = styled.img`
 
     display: block;
     max-width: 600px;
+    border-radius: 10px 0px 0px 10px;
     /* height: 480px; */
     /* width: 480px; */
 
@@ -38,6 +41,7 @@ const MyPhoto = styled.img`
 `
 
 const PhotoWrapper = styled.div`
+    border-radius: inherit;
     flex-basis: 400px;
 `
 
