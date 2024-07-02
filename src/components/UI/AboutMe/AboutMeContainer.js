@@ -4,6 +4,26 @@ import myImage from "../../../assets/photos/my_photo.jpg"
 const AboutMeSection = styled.section`
 
 
+    @media (max-width: 1280px) {
+
+        max-width: 768px;
+        margin: 0 auto;
+
+    }
+
+    @media (max-width: 768px) {
+
+        max-width: 480px;
+        margin: 0 auto;
+
+    }
+
+    @media (max-width: 768px) {
+
+        max-width: 320px;
+        margin: 0 auto;
+
+    }
 
 `
 
@@ -14,8 +34,8 @@ const Title = styled.h1`
 
 const Text = styled.p`
     margin-top: 0px;
-    font-size: 20px;
-    text-align: left;
+    font-size: inherit;
+    text-align: inherit;
     /* text-indent: 15%; */
 `
 
@@ -27,6 +47,23 @@ const AboutMeWrapper = styled.div`
         justify-content: space-between;
         box-shadow: 0px 5px 10px #2b6370;
         border-radius: 10px;
+        max-width: inherit;
+
+        @media (max-width: 1280px) {
+            display: flex;
+            flex-direction: column;
+            /* max-width: 768px; */
+            margin: 0 auto;
+            padding-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            /* max-width: 480px; */
+            margin: 0 auto;
+            padding-top: 0px;
+        }
 `
 
 const MyPhoto = styled.img`
@@ -37,17 +74,48 @@ const MyPhoto = styled.img`
     /* height: 480px; */
     /* width: 480px; */
 
+    @media (max-width: 1280px) {
+        border-radius: 10px 10px 10px 10px;
+
+    }
+
+    @media (max-width: 768px) {
+        border-radius: 10px 10px 10px 10px;
+        max-width: inherit;
+    }
+
 
 `
 
 const PhotoWrapper = styled.div`
     border-radius: inherit;
-    flex-basis: 400px;
+    /* flex-basis: 400px; */
+    margin-bottom: 10px;
+    max-width: inherit;
+    
+
+    @media (max-width: 768px) {
+
+        max-width: inherit;
+    }
 `
 
 const TextWrapper = styled.div`
     max-width: 600px;
     padding-top: 0px;
+    font-size: 20px;
+    text-align: left;
+
+    @media (max-width: 1280px) {
+        width: 100%;
+        text-align: justify;
+    }
+
+    @media (max-width: 768px) {
+        width: 90%;
+        text-align: justify;
+        font-size: 16px;
+    }
 `
 
 export const AboutMeContainer = () => (

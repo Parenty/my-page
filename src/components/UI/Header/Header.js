@@ -18,6 +18,11 @@ const Header = styled.header`
     margin-bottom: 40px;
     border-radius: 0px 0px 10px 10px;
     z-index: 1;
+    font-size: 22px;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
 
     /* @media (max-width: 576px) { 
        
@@ -38,11 +43,11 @@ const Header = styled.header`
 
     h1 {
         margin-left: 48px;
-        font-size: 24px;
+        font-size: inherit;
         @media (max-width: 576px) {
             /* margin: 0 auto; */
             margin: 20px 10px 10px 10px;
-            font-size: 24px;
+            /* font-size: 24px; */
         }
     }
 
@@ -65,8 +70,8 @@ const Header = styled.header`
             display: flex;
             justify-content: space-between;
             font-weight: bold;
-            font-size: 22px;
-            line-height: 32px;
+            font-size: inherit;
+            /* line-height: 32px; */
             li {
                 list-style-type: none;
                 margin: 0;
