@@ -1,14 +1,16 @@
-// import logo from './logo.svg';
-import logo from '../../logo.svg'
-import './App.css';
+
+import Container from "../container/Container";
 import AppHeader from "../appHeader/AppHeader";
 import AboutMe from "../aboutMe/AboutMe";
+
 
 function App() {
   return (
     <div className="App">
       <AppHeader/>
-      <AboutMe/>
+      <Container>
+        <AboutMe/>
+      </Container>
     </div>
   );
 }

@@ -3,8 +3,8 @@ import myImage from "../../../assets/photos/my_photo.jpg"
 
 const AboutMeSection = styled.section`
 
-    max-width: 1280px;
-    margin: 0 auto;
+
+
 `
 
 
@@ -55,7 +55,7 @@ export const AboutMeContainer = () => (
         <Title>Обо мне</Title>
         <AboutMeWrapper>
             <PhotoWrapper>
-            <MyPhoto   MyPhoto src={myImage} alt='my photo'></MyPhoto>
+            <MyPhoto src={myImage} alt='my photo'></MyPhoto>
             </PhotoWrapper>
             <TextWrapper>
             <Text>

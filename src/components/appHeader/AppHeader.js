@@ -1,6 +1,9 @@
+import { useState } from "react";
 import Header from "../UI/Header/Header";
 
 const AppHeader = () => {
+    const [isOpen, setOpen] = useState();
+
     return (
         <Header>
             <h1 >
@@ -8,7 +11,7 @@ const AppHeader = () => {
                     <span>Моя страничка</span>
                 </a>
             </h1>
-            <nav >
+            <nav className={`header__nav${isOpen ? '__active' : ''}`}>
                 <ul>
                     <li>
                         <a href="#">Обо мне</a>
@@ -21,6 +24,7 @@ const AppHeader = () => {
                     </li>
                 </ul>
             </nav>
+            <button onClick={() => setOpen(!isOpen)}></button>
         </Header>
     )
 }
