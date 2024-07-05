@@ -1,29 +1,8 @@
 import styled from 'styled-components';
 import myImage from "../../../assets/photos/my_photo.jpg"
+import {SectionWrapper} from '../SectionWrapper/SectionWrapper';
 
-const AboutMeSection = styled.section`
-
-
-    @media (max-width: 1280px) {
-
-        max-width: 768px;
-        margin: 0 auto;
-
-    }
-
-    @media (max-width: 768px) {
-
-        max-width: 480px;
-        margin: 0 auto;
-
-    }
-
-    @media (max-width: 768px) {
-
-        max-width: 320px;
-        margin: 0 auto;
-
-    }
+const AboutMeSection = styled(SectionWrapper)`
 
 `
 
@@ -48,11 +27,13 @@ const AboutMeWrapper = styled.div`
         box-shadow: 0px 5px 10px #2b6370;
         border-radius: 10px;
         max-width: inherit;
+        max-height: 600px;
 
         @media (max-width: 1280px) {
             display: flex;
             flex-direction: column;
             /* max-width: 768px; */
+            max-height: inherit;
             margin: 0 auto;
             padding-top: 40px;
         }
@@ -61,6 +42,7 @@ const AboutMeWrapper = styled.div`
             display: flex;
             flex-direction: column;
             /* max-width: 480px; */
+            max-height: inherit;
             margin: 0 auto;
             padding-top: 0px;
         }
@@ -104,15 +86,18 @@ const TextWrapper = styled.div`
     max-width: 600px;
     padding-top: 0px;
     font-size: 20px;
-    text-align: left;
+    padding-right: 35px;
+    text-align: justify;
 
     @media (max-width: 1280px) {
         width: 100%;
+        padding: 0px;
         text-align: justify;
     }
 
     @media (max-width: 768px) {
         width: 90%;
+        padding: 0px;
         text-align: justify;
         font-size: 16px;
     }
