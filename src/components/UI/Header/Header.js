@@ -14,7 +14,7 @@ const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0px 5px 10px #2b6370;
+    box-shadow: 0px 0px 10px #2b6370;
     margin-bottom: 40px;
     border-radius: 0px 0px 10px 10px;
     z-index: 1;

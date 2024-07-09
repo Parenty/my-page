@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import {SectionWrapper} from '../SectionWrapper/SectionWrapper';
+import  MyExpSlider  from '../Slider/MyExpSlider';
 
 const MyExpSection = styled(SectionWrapper)`
 
@@ -49,6 +50,7 @@ const MyExpWrapper = styled.div`
 
 `
 
+
 const TextWrapper = styled.div`
     max-width: 100%;
     padding: 35px ;
@@ -95,6 +97,7 @@ export const MyExpContainer = () => (
                     бесперебойную работу команд в плане закрытия целей по качеству.
                 </Text>
             </TextWrapper>
+            <MyExpSlider></MyExpSlider>
 
         </MyExpWrapper>
     </MyExpSection>
