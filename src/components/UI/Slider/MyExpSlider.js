@@ -9,6 +9,8 @@ import stepikCertMob from "../../../assets/portfolio/mobile/Screenshot_5_mob.png
 import slurmCertMob from "../../../assets/portfolio/mobile/slurm-mob.png"
 
 
+const TRANSITION_DURATION = 300;
+
 
 
 const StyledSliderContainer = styled.div`
@@ -64,7 +66,7 @@ const AllItemsContainer = styled.div`
 
     transition: translate;
     transition-property: transform;
-    transition-duration: 300ms;
+    /* transition-duration: 300ms; */
     transition-timing-function: ease-in-out;
 
 `
@@ -76,7 +78,7 @@ const StyledCert = styled.picture`
 
 `
 
-const Slider = ({children}) => {
+const Slider = ({children, infinite}) => {
 
     // let delta = 0;
     // const screenWidth = window.screen.width
@@ -89,6 +91,8 @@ const Slider = ({children}) => {
     const [slides, setSlides] = useState([]);
     const [offset, setOffset] = useState(0);
     const [width, setWidth] = useState(600);
+    const [clonesCount, setClonesCount] = useState({head: 0, tail: 0});
+    const [transitionDuration, setTransitionDuration] = useState([]);
 
     const windowElRef = useRef();
 
@@ -98,7 +102,7 @@ const Slider = ({children}) => {
         const resizeHandler = () => {
             const _width = windowElRef.current.offsetWidth;
             setWidth(_width)
-            setOffset(0);
+            setOffset(-(clonesCount.head)*width);
     
         }
         resizeHandler();
@@ -107,9 +111,44 @@ const Slider = ({children}) => {
         return () => {
             window.removeEventListener('resize', resizeHandler)
         }
-    }, [])
+    }, [clonesCount, width])
+
+    useEffect(() => {
+
+        if (transitionDuration === 0) {
+            setTimeout(() => {
+                setTransitionDuration(TRANSITION_DURATION);
+            }, TRANSITION_DURATION)
+        }
+
+    }, [transitionDuration])
+
+    useEffect(() => {
+
+        if (!infinite) return;
+
+        if (offset==0) {
+            setTimeout(() => {
+                setTransitionDuration(0);
+                setOffset( -(width * (slides.length - 1 - clonesCount.tail )))
+            }, TRANSITION_DURATION)
+            return
+        }
+
+        if (offset == -(width * (slides.length - 1))) {
+            setTimeout(() => {
+                setTransitionDuration(0);
+                setOffset( -(clonesCount.head * width))
+            }, TRANSITION_DURATION)
+            return
+        }
+
+    },  [offset, infinite, width, slides, clonesCount])
 
     const handleLeftArrowClick = () => {
+        if (!transitionDuration) {
+            setTransitionDuration(TRANSITION_DURATION);
+          };
         setOffset(currentOffset => {
             const newOffset = currentOffset+width
             console.log(newOffset);
@@ -119,6 +158,9 @@ const Slider = ({children}) => {
     }
 
     const handleRightArrowClick = () => {
+        if (!transitionDuration) {
+      setTransitionDuration(TRANSITION_DURATION);
+    }
         console.log('right');
         setOffset((currentOffset) => {
             const newOffset = currentOffset - width
@@ -130,6 +172,17 @@ const Slider = ({children}) => {
 
 
     useEffect(() => {
+
+        if (infinite) {
+            setSlides([
+                cloneElement(children[Children.count(children)-1]),
+                ...children,
+                cloneElement(children[0]),
+            ])
+            setClonesCount({head: 1, tail: 1})
+            return
+        }
+
         setSlides(
             Children.map(children, child => {
                 return cloneElement(child, {
@@ -142,7 +195,7 @@ const Slider = ({children}) => {
             })
         )
     // eslint-disable-next-line
-    }, [])
+    }, [children, infinite])
 
     return (
         <SliderMainContainer>
@@ -151,7 +204,9 @@ const Slider = ({children}) => {
             <FaChevronLeft className="arrow" onClick={handleLeftArrowClick}/>
             <StyledWindow ref={windowElRef}>
                 <AllItemsContainer style={
-                    {transform: `translateX(${offset}px)`}
+                    {
+                        transitionDuration: `${transitionDuration}ms`,
+                        transform: `translateX(${offset}px)`}
                 }>{slides}</AllItemsContainer>
             </StyledWindow>
             <FaChevronRight className="arrow" onClick={handleRightArrowClick}/>
@@ -183,7 +238,7 @@ const StyledDiv = styled.div`
 
 
 const MyExpSlider = () => (
-    <Slider>
+    <Slider infinite='true'>
         <StyledDiv>
             <StyledCert >
                 <source media="(min-width: 768px)" srcSet={productStar}/>
