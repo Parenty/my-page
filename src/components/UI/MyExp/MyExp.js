@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import {SectionWrapper} from '../SectionWrapper/SectionWrapper';
 import  MyExpSlider  from '../Slider/MyExpSlider';
+import {MySlider} from '../Slider/MyExpSliderSwiper';
 
 const MyExpSection = styled(SectionWrapper)`
 
@@ -29,7 +30,9 @@ const MyExpWrapper = styled.div`
         /* justify-content: space-between; */
         box-shadow: 0px 5px 10px #2b6370;
         border-radius: 10px;
+        min-width: 0;
         max-width: inherit;
+        /* margin: 0 auto; */
 
         @media (max-width: 1280px) {
             display: flex;
@@ -73,6 +76,11 @@ const TextWrapper = styled.div`
     }
 `
 
+const SliderTitle = styled.h2`
+    margin: 0 auto;
+    margin-bottom: 20px;
+`
+
 export const MyExpContainer = () => (
     <MyExpSection>
         <Title>Мой опыт</Title>
@@ -97,7 +105,9 @@ export const MyExpContainer = () => (
                     бесперебойную работу команд в плане закрытия целей по качеству.
                 </Text>
             </TextWrapper>
-            <MyExpSlider></MyExpSlider>
+            {/* <MyExpSlider></MyExpSlider> */}
+            <SliderTitle>Мои сертификаты</SliderTitle>
+            <MySlider></MySlider>
 
         </MyExpWrapper>
     </MyExpSection>
