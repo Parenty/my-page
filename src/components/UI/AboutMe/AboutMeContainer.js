@@ -9,6 +9,13 @@ const AboutMeSection = styled(SectionWrapper)`
 
 const Title = styled.h1`
     font-weight: 300px;
+
+    &::before {
+            display: block;
+            content: "";
+            height: 70px;
+            margin: -55px 0 0;
+        }
 `
 
 const Text = styled.p`
@@ -105,7 +112,7 @@ const TextWrapper = styled.div`
 
 export const AboutMeContainer = () => (
     <AboutMeSection>
-        <Title>Обо мне</Title>
+        <Title id='about_me'>Обо мне</Title>
         <AboutMeWrapper>
             <PhotoWrapper>
             <MyPhoto src={myImage} alt='my photo'></MyPhoto>

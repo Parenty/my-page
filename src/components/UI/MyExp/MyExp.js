@@ -12,6 +12,13 @@ const MyExpSection = styled(SectionWrapper)`
 
 const Title = styled.h1`
     font-weight: 300px;
+
+    &::before {
+            display: block;
+            content: "";
+            height: 70px;
+            margin: -55px 0 0;
+        }
 `
 
 const Text = styled.p`
@@ -83,7 +90,7 @@ const SliderTitle = styled.h2`
 
 export const MyExpContainer = () => (
     <MyExpSection>
-        <Title>Мой опыт</Title>
+        <Title id = 'my_exp'>Мой опыт</Title>
         <MyExpWrapper>
 
             <TextWrapper>

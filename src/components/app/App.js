@@ -3,6 +3,7 @@ import Container from "../container/Container";
 import AppHeader from "../appHeader/AppHeader";
 import AboutMe from "../aboutMe/AboutMe";
 import MyExp from "../myExp/myExp";
+import MyHobby from "../myHobby/MyHobby";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Container>
         <AboutMe/>
         <MyExp/>
+        <MyHobby/>
       </Container>
     </div>
   );

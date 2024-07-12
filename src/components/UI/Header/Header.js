@@ -17,7 +17,7 @@ const Header = styled.header`
     box-shadow: 0px 0px 10px #2b6370;
     margin-bottom: 40px;
     border-radius: 0px 0px 10px 10px;
-    z-index: 1;
+    z-index: 10;
     font-size: 22px;
 
     @media (max-width: 768px) {
@@ -58,6 +58,7 @@ const Header = styled.header`
             color: #80b6c2
                 }
         }
+
     
     nav {
         margin-right: 48px;

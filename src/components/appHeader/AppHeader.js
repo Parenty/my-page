@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Header from "../UI/Header/Header";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 const AppHeader = () => {
-    const [isOpen, setOpen] = useState();
+    const [isOpen, setOpen] = useState(false);
+    const menuRef = useRef(null);
+    useClickOutside(menuRef, () => {
+        if (isOpen) {
+            setTimeout(() => setOpen(false), 50);
+        }
+        setOpen(false);
+    })
 
     return (
         <Header>
@@ -11,16 +19,16 @@ const AppHeader = () => {
                     <span>Моя страничка</span>
                 </a>
             </h1>
-            <nav className={`header__nav${isOpen ? '__active' : ''}`}>
+            <nav className={`header__nav${isOpen ? '__active' : ''}`} ref={menuRef}>
                 <ul>
                     <li>
-                        <a href="#">Обо мне</a>
+                        <a href="#about_me">Обо мне</a>
                     </li>
                     <li>
-                        <a href="#">Мой опыт</a>
+                        <a href="#my_exp">Мой опыт</a>
                     </li>
                     <li>
-                        <a href="#">Хобби</a>
+                        <a href="#my_hobby">Хобби</a>
                     </li>
                 </ul>
             </nav>
