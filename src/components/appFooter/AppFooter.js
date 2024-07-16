@@ -23,16 +23,18 @@ const AppFooter = () => {
 const Footer = styled.footer`
 
     box-sizing: border-box;
-    left: 0;
-    top: 0;
+    /* left: 0;
+    top: 0; */
     width: 100%;
     height: 100%;
     background-color: white;
     padding: 0px 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
     /* display: flex; */
     /* justify-content: space-between;
     align-items: center; */
-    box-shadow: 0px 0px 10px #2b6370;
+    box-shadow: 0px 0px 10px 0px #2b6370;
     margin-top: 40px;
     /* margin-bottom: 40px; */
     border-radius: 10px 10px 0px 0px;
@@ -69,7 +71,7 @@ const WrapperContacts = styled.div`
 
         @media (max-width: 576px) {
             /* margin: 0 auto; */
-            margin: 20px 10px 10px 10px;
+            margin: 20px 10px 0px 10px;
             /* font-size: 24px; */
         }
 `
