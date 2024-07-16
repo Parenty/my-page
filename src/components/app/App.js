@@ -4,6 +4,7 @@ import AppHeader from "../appHeader/AppHeader";
 import AboutMe from "../aboutMe/AboutMe";
 import MyExp from "../myExp/myExp";
 import MyHobby from "../myHobby/MyHobby";
+import AppFooter from "../appFooter/AppFooter";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <MyExp/>
         <MyHobby/>
       </Container>
+      <AppFooter/>
     </div>
   );
 }
