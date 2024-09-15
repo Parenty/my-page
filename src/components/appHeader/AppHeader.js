@@ -13,7 +13,7 @@ const AppHeader = () => {
     })
 
     return (
-        <Header>
+        <Header data-testid="header">
             <h1 >
                 <a href="#">
                     <span>Моя страничка</span>
